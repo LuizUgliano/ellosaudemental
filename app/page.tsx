@@ -84,6 +84,11 @@ export default function Home() {
       answer:
         "O agendamento pode ser feito pelo WhatsApp da clínica, onde serão informados horários, modalidade da consulta e demais orientações.",
     },
+    {
+      question: "Como posso pagar pela consulta?",
+      answer:
+        "O pagamento pode ser feito por Transferência bancária, Pix, ou Cartão de crédito.",
+    },
   ];
 
   const nextSlide = () => {
