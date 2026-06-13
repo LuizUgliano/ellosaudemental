@@ -15,13 +15,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Clínica Ello Saúde Mental | Psiquiatria e Telemedicina",
+  title: "Psiquiatria Presencial e Online | Clínica Ello Saúde Mental",
   description:
-    "Consultas psiquiátricas presenciais e online. Atendimento humanizado para adultos, crianças e adolescentes.",
+  "Psiquiatria presencial e telemedicina. Atendimento especializado para adultos, crianças e adolescentes com acolhimento e cuidado individualizado.",
   openGraph: {
-    title: "Clínica Ello Saúde Mental",
-    description:
-      "Psiquiatria, telemedicina e cuidado especializado em saúde mental.",
+    title: "Psiquiatria Presencial e Online | Clínica Ello Saúde Mental",
+  description:
+  "Psiquiatria presencial e telemedicina. Atendimento especializado para adultos, crianças e adolescentes com acolhimento e cuidado individualizado.",
     url: "https://ellosaudemental.com.br",
     siteName: "Clínica Ello Saúde Mental",
     images: [
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Clínica Ello Saúde Mental",
-    description:
-      "Psiquiatria, telemedicina e cuidado especializado em saúde mental.",
+    title: "Psiquiatria Presencial e Online | Clínica Ello Saúde Mental",
+  description:
+  "Psiquiatria presencial e telemedicina. Atendimento especializado para adultos, crianças e adolescentes com acolhimento e cuidado individualizado.",
     images: ["/images/ello-logo.png"],
   },
 };
