@@ -17,7 +17,7 @@ export default function Home() {
       eyebrow: "Telemedicina",
       title: "Consulta online com segurança",
       subtitle:
-        "Consultas online e presenciais com atendimento individualizado para cada paciente.",
+        "Consultas online com atendimento individualizado para cada paciente.",
       image: "/images/ello-logo.png",
       doctor: "Clínica Ello Saúde Mental",
       note: "Cuidar da mente é valorizar a vida.",
@@ -37,41 +37,89 @@ export default function Home() {
   const areas = [
     {
       title: "Ansiedade",
+      href: "/tratamento-ansiedade",
       icon: "/icons/ansiedade.png",
       text: "Avaliação e acompanhamento de sintomas como preocupação excessiva, crises de ansiedade, tensão constante e dificuldade para relaxar.",
     },
     {
       title: "Depressão",
+      href: "/tratamento-depressao",
       icon: "/icons/depressao.png",
       text: "Cuidado voltado para alterações de humor, perda de energia, desânimo persistente, alterações de sono e impacto na rotina.",
     },
     {
       title: "Burnout",
+      href: "/tratamento-burnout",
       icon: "/icons/burnout.png",
       text: "Acompanhamento de quadros relacionados ao esgotamento emocional, sobrecarga profissional e queda importante de desempenho.",
     },
     {
       title: "Insônia",
+      href: "/tratamento-insonia",
       icon: "/icons/insonia.png",
       text: "Investigação de dificuldades para iniciar ou manter o sono, despertares frequentes e prejuízo na qualidade de vida.",
     },
     {
       title: "TDAH",
+      href: "/tratamento-tdah",
       icon: "/icons/tdah.png",
       text: "Avaliação de desatenção, impulsividade, dificuldade de organização e impacto nos estudos, trabalho e relacionamentos.",
     },
     {
       title: "Transtornos do Humor",
+      href: "/transtornos-do-humor",
       icon: "/icons/humor.png",
       text: "Acompanhamento de oscilações de humor, irritabilidade, episódios depressivos e outras alterações emocionais relevantes.",
     },
+  ];
+
+  const moreTopics = [
+    {
+      title: "Transtorno Bipolar",
+      href: "/transtorno-bipolar",
+      desc: "Entenda oscilações de humor, avaliação e acompanhamento.",
+    },
+    {
+      title: "Síndrome do Pânico",
+      href: "/sindrome-do-panico",
+      desc: "Saiba quando crises intensas precisam de cuidado especializado.",
+    },
+    {
+      title: "TOC",
+      href: "/toc",
+      desc: "Conheça sinais de obsessões, compulsões e impacto na rotina.",
+    },
+    {
+      title: "Psiquiatra Infantil",
+      href: "/psiquiatra-infantil",
+      desc: "Informações sobre cuidado em saúde mental de crianças.",
+    },
+    {
+      title: "Primeira Consulta Psiquiátrica",
+      href: "/primeira-consulta-psiquiatrica",
+      desc: "Veja como funciona a primeira avaliação psiquiátrica online.",
+    },
+    {
+      title: "Quando Procurar um Psiquiatra",
+      href: "/quando-procurar-psiquiatra",
+      desc: "Entenda sinais de alerta e momentos de buscar orientação.",
+    },
+  ];
+
+  const regionTopics = [
+    { title: "Psiquiatra Online São Paulo", href: "/psiquiatra-online-sao-paulo" },
+    { title: "Psiquiatra Online ABC", href: "/psiquiatra-online-abc" },
+    { title: "Psiquiatra Online Ribeirão Pires", href: "/psiquiatra-online-ribeirao-pires" },
+    { title: "Psiquiatra Online Santo André", href: "/psiquiatra-online-santo-andre" },
+    { title: "Psiquiatra Online São Bernardo", href: "/psiquiatra-online-sao-bernardo" },
+    { title: "Psiquiatra Online Mauá", href: "/psiquiatra-online-maua" },
   ];
 
   const faqs = [
     {
       question: "As consultas são online ou presenciais?",
       answer:
-        "A Clínica Ello oferece consultas online e presenciais, de acordo com a disponibilidade e necessidade de cada paciente.",
+        "A Clínica Ello oferece consultas online, com atendimento individualizado de acordo com a necessidade de cada paciente.",
     },
     {
       question: "Atendem crianças e adolescentes?",
@@ -101,7 +149,7 @@ export default function Home() {
 
   const prevSlide = () => {
     setActiveSlide((current) =>
-      current === 0 ? slides.length - 1 : current - 1
+      current === 0 ? slides.length - 1 : current - 1,
     );
   };
 
@@ -147,7 +195,12 @@ export default function Home() {
             <span className="truncate">✉️ clinicaello.saude@gmail.com</span>
 
             <div className="flex items-center gap-2 md:gap-3 shrink-0">
-              <Image src="/whatsapp.png" alt="WhatsApp" width={20} height={20} />
+              <Image
+                src="/whatsapp.png"
+                alt="WhatsApp"
+                width={20}
+                height={20}
+              />
               <span>(11) 97630-8934</span>
             </div>
           </div>
@@ -175,7 +228,7 @@ export default function Home() {
             </div>
 
             <nav className="hidden md:flex gap-8 text-sm font-medium text-[#3f3f3f]">
-              <a href="#telemedicina">Telemedicina</a>
+              <a href="/psiquiatra-online">Telemedicina</a>
               <a href="#atuacao">Áreas de Atuação</a>
               <a href="#sobre">Sobre</a>
               <a href="#faq">Dúvidas</a>
@@ -194,7 +247,7 @@ export default function Home() {
 
           {menuOpen && (
             <nav className="md:hidden absolute left-0 right-0 top-full z-50 bg-white border-t border-[#ddd6cf] px-6 py-5 flex flex-col gap-4 text-[#143a63] font-medium shadow-xl">
-              <a onClick={() => setMenuOpen(false)} href="#telemedicina">
+              <a onClick={() => setMenuOpen(false)} href="/psiquiatra-online">
                 Telemedicina
               </a>
               <a onClick={() => setMenuOpen(false)} href="#atuacao">
@@ -232,7 +285,7 @@ export default function Home() {
           type="button"
           onClick={prevSlide}
           aria-label="Slide anterior"
-          className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-11 md:h-11 rounded-full bg-white/55 hover:bg-white/80 text-[#24465c] text-3xl flex items-center justify-center backdrop-blur-md shadow-md cursor-pointer"
+          className="hidden md:flex absolute left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/55 hover:bg-white/80 text-[#24465c] text-3xl items-center justify-center backdrop-blur-md shadow-md cursor-pointer"
         >
           ‹
         </button>
@@ -241,7 +294,7 @@ export default function Home() {
           type="button"
           onClick={nextSlide}
           aria-label="Próximo slide"
-          className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-11 md:h-11 rounded-full bg-white/55 hover:bg-white/80 text-[#24465c] text-3xl flex items-center justify-center backdrop-blur-md shadow-md cursor-pointer"
+          className="hidden md:flex absolute right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/55 hover:bg-white/80 text-[#24465c] text-3xl items-center justify-center backdrop-blur-md shadow-md cursor-pointer"
         >
           ›
         </button>
@@ -264,8 +317,9 @@ export default function Home() {
                       Clínica Ello Saúde Mental
                     </p>
 
-                    <h2 className="text-[25px] font-black leading-tight text-[#143a63]">
-                      Psiquiatria online com acolhimento, segurança e cuidado individualizado
+                    <h2 className="text-[21px] font-black leading-tight text-[#143a63]">
+                      Psiquiatria online com acolhimento, segurança e cuidado
+                      individualizado
                     </h2>
 
                     <div className="flex items-center justify-center gap-2 my-2">
@@ -278,23 +332,21 @@ export default function Home() {
                       Avaliação especializada, acolhimento e tratamento
                       personalizado.
                     </p>
-
-                   
                   </div>
 
                   <a
-  href="https://wa.me/5511976308934"
-  target="_blank"
-  className="absolute left-10 bottom-3 z-40 inline-flex items-center gap-2 rounded-full bg-[#f6c76d] px-4 py-2 text-xs font-semibold text-[#143a63] shadow-lg"
->
-  <Image
-    src="/whatsapp.png"
-    alt="WhatsApp"
-    width={16}
-    height={16}
-  />
-  Agendar
-</a>
+                    href="https://wa.me/5511976308934"
+                    target="_blank"
+                    className="absolute left-10 bottom-3 z-40 inline-flex items-center gap-2 rounded-full bg-[#f6c76d] px-4 py-2 text-xs font-semibold text-[#143a63] shadow-lg"
+                  >
+                    <Image
+                      src="/whatsapp.png"
+                      alt="WhatsApp"
+                      width={16}
+                      height={16}
+                    />
+                    Agendar
+                  </a>
 
                   <MobileDoctorBlock
                     image="/images/fernanda.jpg"
@@ -319,8 +371,9 @@ export default function Home() {
                     Clínica Ello Saúde Mental
                   </p>
 
-                  <h1 className="text-3xl md:text-5xl font-black leading-tight text-[#143a63]">
-                    Psiquiatria online com acolhimento, segurança e cuidado individualizado
+                  <h1 className="text-3xl md:text-4xl font-black leading-tight text-[#143a63]">
+                    Psiquiatria online com acolhimento, segurança e cuidado
+                    individualizado
                   </h1>
 
                   <div className="flex items-center justify-center gap-4 my-4">
@@ -337,7 +390,7 @@ export default function Home() {
                   <a
                     href="https://wa.me/5511976308934"
                     target="_blank"
-                    className="mt-5 inline-flex items-center gap-3 rounded-full bg-[#f6c76d] px-7 py-3 text-sm font-semibold text-[#143a63] shadow-xl hover:-translate-y-1 hover:shadow-2xl transition"
+                    className="mt-2 relative z-40 inline-flex items-center gap-3 rounded-full bg-[#f6c76d] px-7 py-3 text-sm font-semibold text-[#143a63] shadow-xl hover:-translate-y-1 hover:shadow-2xl transition"
                   >
                     <Image
                       src="/whatsapp.png"
@@ -392,23 +445,23 @@ export default function Home() {
                 </div>
 
                 <div className="relative flex justify-center w-full h-[185px]">
-  <div className="w-28 h-28 rounded-full overflow-hidden border-[6px] border-white/90 shadow-xl bg-white">
-    <img
-      src={slide.image}
-      alt={slide.doctor}
-      className="w-full h-full object-contain p-3"
-    />
-  </div>
+                  <div className="w-28 h-28 rounded-full overflow-hidden border-[6px] border-white/90 shadow-xl bg-white">
+                    <img
+                      src={slide.image}
+                      alt={slide.doctor}
+                      className="w-full h-full object-contain p-3"
+                    />
+                  </div>
 
-  <div className="absolute top-[92px] left-1/2 -translate-x-1/2 z-10 w-[150px] bg-white/90 rounded-2xl px-3 py-2 shadow-md text-center">
-    <h3 className="text-xs font-semibold text-[#24465c]">
-      {slide.doctor}
-    </h3>
-    <p className="text-[10px] text-[#5f7180] mt-1 leading-tight">
-      {slide.note}
-    </p>
-  </div>
-</div>
+                  <div className="absolute top-[92px] left-1/2 -translate-x-1/2 z-10 w-[150px] bg-white/90 rounded-2xl px-3 py-2 shadow-md text-center">
+                    <h3 className="text-xs font-semibold text-[#24465c]">
+                      {slide.doctor}
+                    </h3>
+                    <p className="text-[10px] text-[#5f7180] mt-1 leading-tight">
+                      {slide.note}
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* DESKTOP */}
@@ -465,7 +518,7 @@ export default function Home() {
             </>
           )}
 
-          <div className="absolute left-1/2 -translate-x-1/2 bottom-3 md:bottom-5 z-30 flex justify-center gap-3">
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-3 z-30 flex justify-center gap-3 md:hidden">
             {slides.map((_, index) => (
               <button
                 key={index}
@@ -482,6 +535,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section id="atuacao" className="bg-[#f8f6f2] py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-5 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-14">
@@ -494,14 +548,17 @@ export default function Home() {
             </h2>
 
             <p className="text-[#6b625d] text-base md:text-lg">
-  Atendimento psiquiátrico 100% online para adultos, crianças e adolescentes, com avaliação individualizada, escuta acolhedora e plano terapêutico personalizado para cada paciente.
-</p>
+              Atendimento psiquiátrico 100% online para adultos, crianças e
+              adolescentes, com avaliação individualizada, escuta acolhedora e
+              plano terapêutico personalizado para cada paciente.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {areas.map((item) => (
-              <div
+              <a
                 key={item.title}
+                href={item.href}
                 className="group rounded-3xl bg-white border border-[#dcecf5] p-7 text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition min-h-[240px] md:min-h-[260px] flex flex-col items-center justify-center"
               >
                 <img
@@ -517,8 +574,73 @@ export default function Home() {
                 <p className="text-[#6b625d] text-sm leading-relaxed max-w-[310px] mx-auto">
                   {item.text}
                 </p>
-              </div>
+              </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f8f6f2] pt-4 pb-24 md:pb-28">
+        <div className="max-w-7xl mx-auto px-5 md:px-6">
+          <div className="rounded-[2rem] border border-[#dcecf5] bg-white p-6 md:p-9 shadow-sm">
+            <div className="text-center max-w-3xl mx-auto mb-7">
+              <p className="uppercase tracking-[5px] text-xs md:text-sm text-[#2f6f95] mb-3">
+                Outros temas
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#143a63]">
+                Conteúdos para orientar sua busca por cuidado
+              </h2>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {moreTopics.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  className="group rounded-2xl border border-[#dcecf5] bg-[#f8fbfd] px-5 py-5 text-left transition hover:-translate-y-1 hover:shadow-md"
+                >
+                  <h3 className="font-bold text-[#143a63]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#5f7180]">
+                    {item.desc}
+                  </p>
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-8 text-center">
+              <a
+                href="/conteudos"
+                className="inline-flex items-center justify-center rounded-full border border-[#143a63] bg-white px-6 py-3 text-sm font-semibold text-[#143a63] transition hover:bg-[#143a63] hover:text-white"
+              >
+                Ver todos os conteúdos sobre saúde mental →
+              </a>
+            </div>
+
+            <div className="mt-10 rounded-[1.5rem] bg-gradient-to-r from-[#dff3ff] to-[#f8fbfd] p-5 md:p-7">
+              <div className="text-center max-w-3xl mx-auto mb-5">
+                <p className="uppercase tracking-[4px] text-xs text-[#2f6f95] mb-2">
+                  Atendimento online por região
+                </p>
+                <h3 className="text-xl md:text-2xl font-bold text-[#143a63]">
+                  Atendimento online para pacientes de diferentes regiões
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#5f7180] md:text-base">
+                  A consulta psiquiátrica online permite acompanhamento em saúde mental com praticidade, inclusive para pacientes que estão fora da Grande São Paulo.
+                </p>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {regionTopics.map((item) => (
+                  <a
+                    key={item.title}
+                    href={item.href}
+                    className="rounded-2xl border border-[#dcecf5] bg-white/90 px-5 py-4 text-center font-semibold text-[#143a63] transition hover:-translate-y-1 hover:shadow-md"
+                  >
+                    {item.title}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -597,9 +719,7 @@ export default function Home() {
                   {faq.question}
                 </h3>
 
-                <p className="text-[#5f7180] leading-relaxed">
-                  {faq.answer}
-                </p>
+                <p className="text-[#5f7180] leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -621,7 +741,7 @@ export default function Home() {
 
                 <p className="text-base md:text-lg text-[#5f7180] leading-relaxed">
                   Entre em contato para mais informações sobre consultas,
-                  horários disponíveis e atendimento online ou presencial.
+                  horários disponíveis e atendimento online.
                 </p>
               </div>
 
@@ -710,9 +830,7 @@ function MobileDoctorBlock({
           {name}
         </h3>
 
-        <p className="mt-1 text-[9px] text-[#3f4f5d] leading-tight">
-          {crm}
-        </p>
+        <p className="mt-1 text-[9px] text-[#3f4f5d] leading-tight">{crm}</p>
 
         <div className="h-px bg-[#b9ddf2] my-1.5" />
 
@@ -742,9 +860,7 @@ function DoctorBlock({
       </div>
 
       <div className="-mt-5 w-[92%] bg-white/95 backdrop-blur rounded-3xl px-5 py-4 shadow-xl text-center">
-        <h3 className="text-lg md:text-xl font-bold text-[#143a63]">
-          {name}
-        </h3>
+        <h3 className="text-lg md:text-xl font-bold text-[#143a63]">{name}</h3>
 
         <p className="mt-1 text-[#3f4f5d] text-sm">{crm}</p>
 
@@ -758,22 +874,12 @@ function DoctorBlock({
   );
 }
 
-function InfoCard({
-  title,
-  text,
-}: {
-  title: string;
-  text: string;
-}) {
+function InfoCard({ title, text }: { title: string; text: string }) {
   return (
     <div className="bg-[#f8fbfd] rounded-3xl p-7 border border-[#dcecf5] shadow-sm">
-      <h3 className="text-2xl font-bold text-[#143a63] mb-3">
-        {title}
-      </h3>
+      <h3 className="text-2xl font-bold text-[#143a63] mb-3">{title}</h3>
 
-      <p className="text-[#5f7180] leading-relaxed">
-        {text}
-      </p>
+      <p className="text-[#5f7180] leading-relaxed">{text}</p>
     </div>
   );
 }
@@ -805,21 +911,15 @@ function DoctorProfile({
             {name}
           </h3>
 
-          <p className="text-[#2f6f95] font-medium mt-2">
-            {crm}
-          </p>
+          <p className="text-[#2f6f95] font-medium mt-2">{crm}</p>
 
-          <p className="text-[#5f7180] mt-2 font-medium">
-            {formation}
-          </p>
+          <p className="text-[#5f7180] mt-2 font-medium">{formation}</p>
         </div>
       </div>
 
       <div className="h-px bg-[#b9ddf2] my-6" />
 
-      <p className="text-[#5f7180] leading-relaxed text-left">
-        {text}
-      </p>
+      <p className="text-[#5f7180] leading-relaxed text-left">{text}</p>
     </div>
   );
 }
