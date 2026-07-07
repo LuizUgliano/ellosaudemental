@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -17,16 +18,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ellosaudemental.com.br"),
   title: {
-    default: "Psiquiatra em Ribeirão Pires | Clínica Ello Saúde Mental",
+    default: "Clínica Ello Saúde Mental | Psiquiatria Online",
     template: "%s | Clínica Ello Saúde Mental",
   },
   description:
-    "Clínica de psiquiatria em Ribeirão Pires com atendimento presencial e online. Cuidado em ansiedade, depressão, TDAH, insônia, burnout e saúde mental.",
+    "Clínica de saúde mental com atendimento psiquiátrico online. Cuidado em ansiedade, depressão, TDAH, insônia, burnout e saúde mental.",
   keywords: [
-    "psiquiatra em Ribeirão Pires",
-    "psiquiatra em Mauá",
     "psiquiatra online",
-    "psiquiatria presencial",
+    "psiquiatria online",
+    "consulta psiquiátrica online",
     "tratamento ansiedade",
     "tratamento depressão",
     "TDAH adulto",
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Psiquiatra em Ribeirão Pires | Clínica Ello Saúde Mental",
+    title: "Clínica Ello Saúde Mental | Psiquiatria Online",
     description:
-      "Atendimento psiquiátrico presencial e online para saúde mental, ansiedade, depressão, TDAH, insônia e burnout.",
+      "Atendimento psiquiátrico online para saúde mental, ansiedade, depressão, TDAH, insônia e burnout.",
     url: "https://ellosaudemental.com.br",
     siteName: "Clínica Ello Saúde Mental",
     images: [
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Psiquiatra em Ribeirão Pires | Clínica Ello Saúde Mental",
+    title: "Clínica Ello Saúde Mental | Psiquiatria Online",
     description:
-      "Atendimento psiquiátrico presencial e online em Ribeirão Pires e região.",
+      "Atendimento psiquiátrico online com acolhimento, segurança e cuidado individualizado.",
     images: ["/images/ello-logo.png"],
   },
   robots: {
@@ -73,11 +73,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NQ1YED49D4"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-NQ1YED49D4');
+          `}
+        </Script>
+
         {children}
         <Analytics />
         <SpeedInsights />
