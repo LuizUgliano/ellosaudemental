@@ -15,13 +15,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Psiquiatria Presencial e Online | Clínica Ello Saúde Mental",
+  metadataBase: new URL("https://ellosaudemental.com.br"),
+  title: {
+    default: "Psiquiatra em Ribeirão Pires | Clínica Ello Saúde Mental",
+    template: "%s | Clínica Ello Saúde Mental",
+  },
   description:
-  "Psiquiatria presencial e telemedicina. Atendimento especializado para adultos, crianças e adolescentes com acolhimento e cuidado individualizado.",
+    "Clínica de psiquiatria em Ribeirão Pires com atendimento presencial e online. Cuidado em ansiedade, depressão, TDAH, insônia, burnout e saúde mental.",
+  keywords: [
+    "psiquiatra em Ribeirão Pires",
+    "psiquiatra em Mauá",
+    "psiquiatra online",
+    "psiquiatria presencial",
+    "tratamento ansiedade",
+    "tratamento depressão",
+    "TDAH adulto",
+    "insônia",
+    "burnout",
+    "Clínica Ello Saúde Mental",
+  ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Psiquiatria Presencial e Online | Clínica Ello Saúde Mental",
-  description:
-  "Psiquiatria presencial e telemedicina. Atendimento especializado para adultos, crianças e adolescentes com acolhimento e cuidado individualizado.",
+    title: "Psiquiatra em Ribeirão Pires | Clínica Ello Saúde Mental",
+    description:
+      "Atendimento psiquiátrico presencial e online para saúde mental, ansiedade, depressão, TDAH, insônia e burnout.",
     url: "https://ellosaudemental.com.br",
     siteName: "Clínica Ello Saúde Mental",
     images: [
@@ -37,10 +56,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Psiquiatria Presencial e Online | Clínica Ello Saúde Mental",
-  description:
-  "Psiquiatria presencial e telemedicina. Atendimento especializado para adultos, crianças e adolescentes com acolhimento e cuidado individualizado.",
+    title: "Psiquiatra em Ribeirão Pires | Clínica Ello Saúde Mental",
+    description:
+      "Atendimento psiquiátrico presencial e online em Ribeirão Pires e região.",
     images: ["/images/ello-logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -51,12 +74,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}
-
         <Analytics />
         <SpeedInsights />
       </body>

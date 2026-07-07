@@ -165,9 +165,9 @@ export default function Home() {
               />
 
               <div>
-                <h1 className="text-lg md:text-2xl font-semibold tracking-wide text-[#24465c] leading-tight">
+                <p className="text-lg md:text-2xl font-semibold tracking-wide text-[#24465c] leading-tight">
                   Clínica Ello - Saúde Mental
-                </h1>
+                </p>
                 <p className="text-xs md:text-sm text-[#6b625d]">
                   Psiquiatria • Telemedicina • Saúde Mental
                 </p>
@@ -265,7 +265,7 @@ export default function Home() {
                     </p>
 
                     <h2 className="text-[25px] font-black leading-tight text-[#143a63]">
-                      Cuidando da sua saúde mental com excelência
+                      Psiquiatria online com acolhimento, segurança e cuidado individualizado
                     </h2>
 
                     <div className="flex items-center justify-center gap-2 my-2">
@@ -319,9 +319,9 @@ export default function Home() {
                     Clínica Ello Saúde Mental
                   </p>
 
-                  <h2 className="text-3xl md:text-5xl font-black leading-tight text-[#143a63]">
-                    Cuidando da sua saúde mental com excelência
-                  </h2>
+                  <h1 className="text-3xl md:text-5xl font-black leading-tight text-[#143a63]">
+                    Psiquiatria online com acolhimento, segurança e cuidado individualizado
+                  </h1>
 
                   <div className="flex items-center justify-center gap-4 my-4">
                     <div className="h-px w-20 bg-[#8fc7e8]" />
@@ -494,9 +494,8 @@ export default function Home() {
             </h2>
 
             <p className="text-[#6b625d] text-base md:text-lg">
-              Atendimento psiquiátrico online com avaliação individualizada,
-              escuta acolhedora e plano terapêutico adequado para cada paciente.
-            </p>
+  Atendimento psiquiátrico 100% online para adultos, crianças e adolescentes, com avaliação individualizada, escuta acolhedora e plano terapêutico personalizado para cada paciente.
+</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
