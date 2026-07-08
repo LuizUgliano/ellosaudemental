@@ -191,18 +191,42 @@ export default function Home() {
     <main className="min-h-screen bg-[#f4f1ed] text-[#2b2b2b]">
       <header className="relative z-40">
         <div className="bg-gradient-to-r from-[#8fc7e8] via-[#b9ddf2] to-[#dff3ff] text-[#23313d]">
-          <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 flex items-center justify-center md:justify-end gap-4 md:gap-8 text-xs md:text-sm">
-            <span className="truncate">✉️ clinicaello.saude@gmail.com</span>
+          <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 flex items-center justify-center md:justify-end gap-5 md:gap-8 text-xs md:text-sm">
+            <a
+              href="mailto:clinicaello.saude@gmail.com"
+              className="flex items-center gap-1.5 shrink-0 hover:text-[#143a63] transition"
+              aria-label="Enviar e-mail para a Clínica Ello Saúde Mental"
+            >
+              <span aria-hidden="true">✉️</span>
+              <span className="hidden sm:inline">clinicaello.saude@gmail.com</span>
+            </a>
 
-            <div className="flex items-center gap-2 md:gap-3 shrink-0">
+            <a
+              href="https://www.instagram.com/ello_saudemental"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 shrink-0 hover:text-[#143a63] transition"
+              aria-label="Instagram da Clínica Ello Saúde Mental"
+            >
+              <InstagramIcon />
+              <span className="hidden md:inline">@ello_saudemental</span>
+            </a>
+
+            <a
+              href="https://wa.me/5511976308934"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 shrink-0 hover:text-[#143a63] transition"
+              aria-label="WhatsApp da Clínica Ello Saúde Mental"
+            >
               <Image
                 src="/whatsapp.png"
                 alt="WhatsApp"
-                width={20}
-                height={20}
+                width={19}
+                height={19}
               />
-              <span>(11) 97630-8934</span>
-            </div>
+              <span className="hidden sm:inline">(11) 97630-8934</span>
+            </a>
           </div>
         </div>
 
@@ -805,6 +829,32 @@ export default function Home() {
         />
       </a>
     </main>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      width="19"
+      height="19"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="shrink-0"
+    >
+      <rect
+        x="3.5"
+        y="3.5"
+        width="17"
+        height="17"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
+      <circle cx="17.3" cy="6.7" r="1.25" fill="currentColor" />
+    </svg>
   );
 }
 
