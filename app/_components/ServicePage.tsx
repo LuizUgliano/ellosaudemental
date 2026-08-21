@@ -29,17 +29,17 @@ export default function ServicePage({
     <main className="min-h-screen bg-[#f4f1ed] text-[#2b2b2b]">
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#dff3ff] via-[#f8fbfd] to-[#f4f1ed] py-12 md:py-16">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#143a63] via-[#2f6f95] to-[#8fc7e8] py-12 text-white md:py-16">
         <div className="mx-auto max-w-4xl px-5 md:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#2f6f95]">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#dff3ff]">
             {eyebrow}
           </p>
 
-          <h1 className="mt-4 font-display text-4xl leading-tight text-[#143a63] md:text-5xl lg:text-6xl">
+          <h1 className="mt-4 font-display text-4xl leading-tight md:text-5xl lg:text-6xl">
             {title}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#5f7180] md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">
             {description}
           </p>
 

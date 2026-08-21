@@ -8,9 +8,9 @@ type WhatsAppButtonProps = {
 };
 
 const sizes = {
-  sm: { icon: 22, pad: "px-5 py-2.5 text-sm", gap: "gap-2.5" },
-  md: { icon: 26, pad: "px-6 py-3.5 text-sm", gap: "gap-3" },
-  lg: { icon: 28, pad: "px-8 py-4 text-base", gap: "gap-3" },
+  sm: { icon: 24, pad: "px-5 py-2.5 text-sm", gap: "gap-2.5" },
+  md: { icon: 28, pad: "px-6 py-3.5 text-sm", gap: "gap-3" },
+  lg: { icon: 32, pad: "px-8 py-4 text-base", gap: "gap-3.5" },
 };
 
 export default function WhatsAppButton({
