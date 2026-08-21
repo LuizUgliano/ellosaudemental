@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { searchContent, type ContentItem } from "../_lib/contentIndex";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 const navLinks = [
   { href: "/psiquiatra-online", label: "Telemedicina" },
@@ -19,7 +20,6 @@ export default function SiteHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   const menuId = useId();
   const searchRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const results = useMemo(() => searchContent(query, 7), [query]);
   const showResults = searchOpen && query.trim().length >= 2;
@@ -62,38 +62,35 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 shadow-[0_8px_30px_-18px_rgba(20,58,99,0.45)]">
-      <div className="hidden bg-gradient-to-r from-[#8fc7e8] via-[#b9ddf2] to-[#dff3ff] text-[#23313d] sm:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-end gap-6 px-5 py-2 md:px-6">
+      <div className="bg-gradient-to-r from-[#8fc7e8] via-[#b9ddf2] to-[#dff3ff] text-[#23313d]">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-4 px-3 py-2 sm:justify-end sm:gap-6 sm:px-5 md:px-6">
           <a
             href="mailto:clinicaello.saude@gmail.com"
-            className="flex items-center gap-2 text-sm transition hover:text-[#143a63]"
+            className="flex min-h-10 min-w-10 items-center justify-center gap-2 rounded-lg px-1.5 text-sm transition hover:text-[#143a63] sm:min-h-0 sm:min-w-0"
+            aria-label="E-mail da clínica"
           >
             <MailIcon />
-            <span>clinicaello.saude@gmail.com</span>
+            <span className="hidden sm:inline">clinicaello.saude@gmail.com</span>
           </a>
           <a
             href="https://www.instagram.com/ello_saudemental"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm transition hover:text-[#143a63]"
+            className="flex min-h-10 min-w-10 items-center justify-center gap-2 rounded-lg px-1.5 text-sm transition hover:text-[#143a63] sm:min-h-0 sm:min-w-0"
+            aria-label="Instagram da Clínica Ello Saúde Mental"
           >
             <InstagramIcon />
-            <span>@ello_saudemental</span>
+            <span className="hidden md:inline">@ello_saudemental</span>
           </a>
           <a
             href="https://wa.me/5511976308934"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-medium transition hover:text-[#143a63]"
+            className="flex min-h-10 min-w-10 items-center justify-center gap-2 rounded-lg px-1.5 text-sm font-medium transition hover:text-[#143a63] sm:min-h-0 sm:min-w-0"
+            aria-label="WhatsApp da clínica"
           >
-            <Image
-              src="/whatsapp.png"
-              alt=""
-              width={28}
-              height={28}
-              className="h-7 w-7 object-contain"
-            />
-            <span>(11) 97630-8934</span>
+            <WhatsAppIcon size={22} />
+            <span className="hidden sm:inline">(11) 97630-8934</span>
           </a>
         </div>
       </div>
@@ -125,7 +122,7 @@ export default function SiteHeader() {
               className="h-10 w-10 object-contain sm:h-12 sm:w-12"
               priority
             />
-            <div className="min-w-0 hidden xs:block sm:block">
+            <div className="min-w-0 hidden sm:block">
               <p className="font-display text-lg leading-tight tracking-wide text-[#143a63] sm:text-2xl">
                 Clínica Ello
               </p>
@@ -135,7 +132,10 @@ export default function SiteHeader() {
             </div>
           </Link>
 
-          <div ref={searchRef} className="relative ml-auto min-w-0 flex-1 max-w-xl lg:ml-4">
+          <div
+            ref={searchRef}
+            className="relative ml-auto min-w-0 flex-1 max-w-xl lg:ml-4"
+          >
             <label htmlFor="site-search" className="sr-only">
               Buscar conteúdos de saúde mental
             </label>
@@ -144,7 +144,6 @@ export default function SiteHeader() {
                 <SearchIcon />
               </span>
               <input
-                ref={inputRef}
                 id="site-search"
                 type="search"
                 value={query}
@@ -207,13 +206,7 @@ export default function SiteHeader() {
             rel="noopener noreferrer"
             className="hidden shrink-0 items-center gap-2.5 rounded-full bg-[#f6c76d] px-4 py-2.5 text-sm font-semibold text-[#143a63] shadow-md transition hover:-translate-y-0.5 hover:shadow-lg md:inline-flex"
           >
-            <Image
-              src="/whatsapp.png"
-              alt=""
-              width={24}
-              height={24}
-              className="h-6 w-6 object-contain"
-            />
+            <WhatsAppIcon size={22} />
             Agendar
           </a>
         </div>
@@ -258,36 +251,25 @@ export default function SiteHeader() {
             ))}
 
             <a
-              href="https://wa.me/5511976308934"
+              href="https://www.instagram.com/ello_saudemental"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
-              className="mt-6 inline-flex items-center justify-center gap-3 rounded-full bg-[#f6c76d] px-5 py-3.5 text-sm font-semibold text-[#143a63]"
+              className="mt-2 flex items-center gap-3 rounded-xl px-3 py-3 text-base font-medium text-[#143a63] transition hover:bg-[#f4f1ed]"
             >
-              <Image
-                src="/whatsapp.png"
-                alt=""
-                width={26}
-                height={26}
-                className="h-[26px] w-[26px] object-contain"
-              />
-              Agendar consulta
+              <InstagramIcon />
+              Instagram
             </a>
 
             <a
               href="https://wa.me/5511976308934"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 flex items-center justify-center gap-2 rounded-xl border border-[#dcecf5] px-4 py-3 text-sm text-[#143a63]"
+              onClick={() => setMenuOpen(false)}
+              className="mt-6 inline-flex items-center justify-center gap-3 rounded-full bg-[#f6c76d] px-5 py-3.5 text-sm font-semibold text-[#143a63]"
             >
-              <Image
-                src="/whatsapp.png"
-                alt=""
-                width={24}
-                height={24}
-                className="h-6 w-6 object-contain"
-              />
-              (11) 97630-8934
+              <WhatsAppIcon size={26} />
+              Agendar consulta
             </a>
           </nav>
         </div>
@@ -333,7 +315,7 @@ function CloseIcon() {
 
 function MailIcon() {
   return (
-    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none">
+    <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
       <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.8" />
       <path
         d="M4 7l8 6 8-6"
@@ -348,7 +330,7 @@ function MailIcon() {
 
 function InstagramIcon() {
   return (
-    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none">
+    <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
       <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" strokeWidth="1.8" />
       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
       <circle cx="17.3" cy="6.7" r="1.25" fill="currentColor" />

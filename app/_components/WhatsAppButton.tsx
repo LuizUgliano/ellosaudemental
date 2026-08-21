@@ -1,4 +1,4 @@
-import Image from "next/image";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 type WhatsAppButtonProps = {
   label: string;
@@ -8,9 +8,9 @@ type WhatsAppButtonProps = {
 };
 
 const sizes = {
-  sm: { icon: 24, pad: "px-5 py-2.5 text-sm", gap: "gap-2.5" },
-  md: { icon: 28, pad: "px-6 py-3.5 text-sm", gap: "gap-3" },
-  lg: { icon: 32, pad: "px-8 py-4 text-base", gap: "gap-3.5" },
+  sm: { icon: 22, pad: "px-5 py-2.5 text-sm", gap: "gap-2.5" },
+  md: { icon: 26, pad: "px-6 py-3.5 text-sm", gap: "gap-3" },
+  lg: { icon: 30, pad: "px-7 py-4 text-base", gap: "gap-3" },
 };
 
 export default function WhatsAppButton({
@@ -28,15 +28,8 @@ export default function WhatsAppButton({
       rel="noopener noreferrer"
       className={`inline-flex items-center justify-center ${s.gap} ${s.pad} rounded-full bg-[#f6c76d] font-semibold text-[#143a63] shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl ${fullWidth ? "w-full" : ""} ${className}`}
     >
-      <Image
-        src="/whatsapp.png"
-        alt=""
-        width={s.icon}
-        height={s.icon}
-        className="h-auto w-auto shrink-0 object-contain"
-        style={{ width: s.icon, height: s.icon }}
-      />
-      {label}
+      <WhatsAppIcon size={s.icon} />
+      <span>{label}</span>
     </a>
   );
 }

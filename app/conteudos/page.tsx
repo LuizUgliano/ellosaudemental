@@ -26,15 +26,15 @@ export default function ConteudosPage() {
     <main className="min-h-screen bg-[#f4f1ed] text-[#2b2b2b]">
       <SiteHeader />
 
-      <section className="bg-gradient-to-br from-[#143a63] via-[#2f6f95] to-[#8fc7e8] py-12 text-white md:py-16">
+      <section className="bg-gradient-to-br from-[#5a9ec8] via-[#8fc7e8] to-[#dff3ff] py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-5 md:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#dff3ff]">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#143a63]/80">
             Biblioteca
           </p>
-          <h1 className="mt-4 font-display text-4xl leading-tight md:text-6xl">
+          <h1 className="mt-4 font-display text-4xl leading-tight text-[#143a63] md:text-6xl">
             Conteúdos sobre saúde mental
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#24465c] md:text-lg">
             Use a busca no topo da página para achar um tema rapidamente, ou
             navegue pelas categorias abaixo.
           </p>
