@@ -166,7 +166,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="animate-fade-up-delay grid grid-cols-2 gap-3 sm:gap-5">
+          <div className="animate-fade-up-delay mx-auto grid w-full max-w-md grid-cols-2 gap-3 sm:max-w-none sm:gap-5 lg:mx-0">
             <DoctorPortrait
               image="/nathalia.jpg"
               name="Dra. Nathália Costa Ugliano"
@@ -177,7 +177,7 @@ export default function Home() {
               image="/images/fernanda.jpg"
               name="Dra. Fernanda Matos"
               detail="CRM-SP 264039"
-              className="mt-8 sm:mt-12"
+              className="sm:mt-10 lg:mt-12"
             />
           </div>
         </div>
@@ -450,8 +450,8 @@ function DoctorPortrait({
   priority?: boolean;
 }) {
   return (
-    <figure className={`animate-soft-float ${className}`}>
-      <div className="overflow-hidden rounded-[1.5rem] shadow-[0_28px_60px_-28px_rgba(20,58,99,0.45)] ring-1 ring-white/80">
+    <figure className={className}>
+      <div className="overflow-hidden rounded-[1.25rem] shadow-[0_28px_60px_-28px_rgba(20,58,99,0.45)] ring-1 ring-white/80 sm:rounded-[1.5rem]">
         <Image
           src={image}
           alt={name}
@@ -461,11 +461,13 @@ function DoctorPortrait({
           className="aspect-[4/5] w-full object-cover"
         />
       </div>
-      <figcaption className="mt-3 px-1">
-        <p className="text-sm font-semibold leading-snug text-[#143a63] md:text-base">
+      <figcaption className="mt-2.5 px-0.5 sm:mt-3 sm:px-1">
+        <p className="text-xs font-semibold leading-snug text-[#143a63] sm:text-sm md:text-base">
           {name}
         </p>
-        <p className="mt-0.5 text-xs text-[#5f7180] md:text-sm">{detail}</p>
+        <p className="mt-0.5 text-[11px] text-[#5f7180] sm:text-xs md:text-sm">
+          {detail}
+        </p>
       </figcaption>
     </figure>
   );

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 const navLinks = [
   { href: "/psiquiatra-online", label: "Telemedicina" },
@@ -15,6 +15,7 @@ const navLinks = [
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuId = useId();
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -23,13 +24,21 @@ export default function SiteHeader() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
     <header className="relative z-50">
       <div className="bg-gradient-to-r from-[#8fc7e8] via-[#b9ddf2] to-[#dff3ff] text-[#23313d]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2.5 md:justify-end md:gap-8 md:px-6 md:py-2">
+        <div className="mx-auto flex max-w-7xl items-center justify-end gap-4 px-5 py-2.5 sm:gap-6 md:gap-8 md:px-6">
           <a
             href="mailto:clinicaello.saude@gmail.com"
-            className="flex min-h-11 items-center gap-2 rounded-lg px-1 text-sm transition hover:text-[#143a63] md:min-h-0"
+            className="flex min-h-11 items-center gap-2 rounded-lg px-1.5 text-sm transition hover:text-[#143a63]"
             aria-label="Enviar e-mail para a Clínica Ello Saúde Mental"
           >
             <MailIcon />
@@ -40,7 +49,7 @@ export default function SiteHeader() {
             href="https://www.instagram.com/ello_saudemental"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-11 items-center gap-2 rounded-lg px-1 text-sm transition hover:text-[#143a63] md:min-h-0"
+            className="flex min-h-11 items-center gap-2 rounded-lg px-1.5 text-sm transition hover:text-[#143a63]"
             aria-label="Instagram da Clínica Ello Saúde Mental"
           >
             <InstagramIcon />
@@ -51,43 +60,47 @@ export default function SiteHeader() {
             href="https://wa.me/5511976308934"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-11 items-center gap-2 rounded-lg px-1 text-sm font-medium transition hover:text-[#143a63] md:min-h-0"
+            className="flex min-h-11 items-center gap-2 rounded-lg px-1.5 text-sm font-medium transition hover:text-[#143a63]"
             aria-label="WhatsApp da Clínica Ello Saúde Mental"
           >
-            <Image src="/whatsapp.png" alt="" width={22} height={22} />
+            <Image src="/whatsapp.png" alt="" width={24} height={24} />
             <span className="hidden sm:inline">(11) 97630-8934</span>
           </a>
         </div>
       </div>
 
       <div className="border-b border-[#ddd6cf] bg-[#f8f6f2]/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 md:px-6 md:py-4">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-3 sm:gap-3 md:px-6 md:py-4">
           <button
             type="button"
+            id={`${menuId}-button`}
             onClick={() => setMenuOpen((open) => !open)}
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-[#143a63] transition hover:bg-[#dff3ff] lg:hidden"
+            className="relative z-[60] flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#143a63]/15 bg-white text-[#143a63] shadow-sm transition hover:bg-[#dff3ff] lg:hidden"
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={menuOpen}
+            aria-controls={`${menuId}-panel`}
           >
-            <span className="text-3xl leading-none" aria-hidden="true">
-              {menuOpen ? "✕" : "☰"}
-            </span>
+            {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
 
-          <Link href="/" className="flex min-w-0 flex-1 items-center gap-3 md:gap-4">
+          <Link
+            href="/"
+            className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3 md:gap-4"
+            onClick={() => setMenuOpen(false)}
+          >
             <Image
               src="/images/ello-logo.png"
               alt="Clínica Ello Saúde Mental"
               width={88}
               height={88}
-              className="h-12 w-12 object-contain md:h-16 md:w-16"
+              className="h-11 w-11 object-contain sm:h-12 sm:w-12 md:h-16 md:w-16"
               priority
             />
             <div className="min-w-0">
-              <p className="font-display text-xl leading-tight tracking-wide text-[#143a63] md:text-3xl">
+              <p className="font-display text-lg leading-tight tracking-wide text-[#143a63] sm:text-xl md:text-3xl">
                 Clínica Ello
               </p>
-              <p className="truncate text-xs text-[#6b625d] md:text-sm">
+              <p className="truncate text-[11px] text-[#6b625d] sm:text-xs md:text-sm">
                 Saúde Mental · Psiquiatria Online
               </p>
             </div>
@@ -116,24 +129,27 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {menuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
+      {menuOpen ? (
+        <div className="fixed inset-0 z-[55] lg:hidden" role="dialog" aria-modal="true">
           <button
             type="button"
-            className="absolute inset-0 bg-[#143a63]/35 backdrop-blur-[2px]"
+            className="absolute inset-0 bg-[#143a63]/40 backdrop-blur-[2px]"
             aria-label="Fechar menu"
             onClick={() => setMenuOpen(false)}
           />
-          <nav className="absolute left-0 top-0 flex h-full w-[min(86vw,320px)] flex-col gap-1 bg-white px-6 py-8 shadow-2xl">
+          <nav
+            id={`${menuId}-panel`}
+            className="absolute left-0 top-0 flex h-full w-[min(88vw,340px)] flex-col gap-1 bg-white px-6 py-8 shadow-2xl"
+          >
             <div className="mb-6 flex items-center justify-between">
               <p className="font-display text-2xl text-[#143a63]">Menu</p>
               <button
                 type="button"
                 onClick={() => setMenuOpen(false)}
-                className="flex h-11 w-11 items-center justify-center rounded-xl text-2xl text-[#143a63] hover:bg-[#dff3ff]"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#143a63]/10 text-[#143a63] hover:bg-[#dff3ff]"
                 aria-label="Fechar menu"
               >
-                ✕
+                <CloseIcon />
               </button>
             </div>
             {navLinks.map((link) => (
@@ -141,7 +157,7 @@ export default function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-xl px-3 py-3 text-base font-medium text-[#143a63] transition hover:bg-[#f4f1ed]"
+                className="rounded-xl px-3 py-3.5 text-base font-medium text-[#143a63] transition hover:bg-[#f4f1ed]"
               >
                 {link.label}
               </a>
@@ -158,8 +174,34 @@ export default function SiteHeader() {
             </a>
           </nav>
         </div>
-      )}
+      ) : null}
     </header>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M4 7h16M4 12h16M4 17h16"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M6 6l12 12M18 6L6 18"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 }
 
