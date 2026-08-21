@@ -129,37 +129,37 @@ export default function Home() {
         <div className="animate-hero-glow absolute -right-20 top-10 h-72 w-72 rounded-full bg-[#8fc7e8]/35 blur-3xl" />
         <div className="absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-[#f6c76d]/20 blur-3xl" />
 
-        <div className="relative mx-auto grid min-h-[calc(100svh-8.5rem)] max-w-7xl items-center gap-10 px-5 py-12 md:px-6 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-20">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-5 py-10 md:min-h-[calc(100svh-8.5rem)] md:gap-10 md:px-6 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-20">
           <div className="animate-fade-up max-w-xl">
-            <p className="font-display text-5xl leading-none tracking-wide text-[#143a63] md:text-6xl lg:text-7xl">
+            <p className="font-display text-4xl leading-none tracking-wide text-[#143a63] sm:text-5xl md:text-6xl lg:text-7xl">
               Ello
             </p>
-            <p className="mt-2 text-sm font-semibold uppercase tracking-[0.28em] text-[#347fb3]">
+            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#347fb3] sm:text-sm">
               Saúde Mental
             </p>
 
-            <h1 className="mt-6 text-3xl font-semibold leading-tight text-[#143a63] md:text-4xl lg:text-[2.75rem]">
+            <h1 className="mt-5 text-2xl font-semibold leading-tight text-[#143a63] sm:text-3xl md:mt-6 md:text-4xl lg:text-[2.75rem]">
               Psiquiatria online com acolhimento e cuidado individualizado
             </h1>
 
-            <p className="mt-5 max-w-md text-base leading-relaxed text-[#5f7180] md:text-lg">
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-[#5f7180] sm:text-base md:mt-5 md:text-lg">
               Avaliação especializada para adultos, crianças e adolescentes —
               com escuta qualificada e plano terapêutico personalizado.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-3 md:mt-8">
               <a
                 href="https://wa.me/5511976308934"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 rounded-full bg-[#f6c76d] px-7 py-3.5 text-sm font-semibold text-[#143a63] shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+                className="inline-flex items-center gap-3 rounded-full bg-[#f6c76d] px-6 py-3.5 text-sm font-semibold text-[#143a63] shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl sm:px-7"
               >
                 <Image src="/whatsapp.png" alt="" width={22} height={22} />
                 Agendar consulta
               </a>
               <a
                 href="#sobre"
-                className="inline-flex items-center rounded-full border border-[#143a63]/25 bg-white/70 px-6 py-3.5 text-sm font-semibold text-[#143a63] backdrop-blur transition hover:bg-white"
+                className="inline-flex items-center rounded-full border border-[#143a63]/25 bg-white/70 px-5 py-3.5 text-sm font-semibold text-[#143a63] backdrop-blur transition hover:bg-white sm:px-6"
               >
                 Conhecer a clínica
               </a>

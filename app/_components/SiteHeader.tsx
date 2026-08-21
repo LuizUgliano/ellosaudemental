@@ -35,10 +35,10 @@ export default function SiteHeader() {
   return (
     <header className="relative z-50">
       <div className="bg-gradient-to-r from-[#8fc7e8] via-[#b9ddf2] to-[#dff3ff] text-[#23313d]">
-        <div className="mx-auto flex max-w-7xl items-center justify-end gap-4 px-5 py-2.5 sm:gap-6 md:gap-8 md:px-6">
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-5 px-4 py-2.5 sm:justify-end sm:gap-6 md:gap-8 md:px-6">
           <a
             href="mailto:clinicaello.saude@gmail.com"
-            className="flex min-h-11 items-center gap-2 rounded-lg px-1.5 text-sm transition hover:text-[#143a63]"
+            className="flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-xl bg-white/35 px-2.5 text-sm transition hover:bg-white/55 hover:text-[#143a63] sm:min-h-11 sm:min-w-0 sm:justify-start sm:bg-transparent sm:px-1.5"
             aria-label="Enviar e-mail para a Clínica Ello Saúde Mental"
           >
             <MailIcon />
@@ -49,7 +49,7 @@ export default function SiteHeader() {
             href="https://www.instagram.com/ello_saudemental"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-11 items-center gap-2 rounded-lg px-1.5 text-sm transition hover:text-[#143a63]"
+            className="flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-xl bg-white/35 px-2.5 text-sm transition hover:bg-white/55 hover:text-[#143a63] sm:min-h-11 sm:min-w-0 sm:justify-start sm:bg-transparent sm:px-1.5"
             aria-label="Instagram da Clínica Ello Saúde Mental"
           >
             <InstagramIcon />
@@ -60,7 +60,7 @@ export default function SiteHeader() {
             href="https://wa.me/5511976308934"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-11 items-center gap-2 rounded-lg px-1.5 text-sm font-medium transition hover:text-[#143a63]"
+            className="flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-xl bg-white/35 px-2.5 text-sm font-medium transition hover:bg-white/55 hover:text-[#143a63] sm:min-h-11 sm:min-w-0 sm:justify-start sm:bg-transparent sm:px-1.5"
             aria-label="WhatsApp da Clínica Ello Saúde Mental"
           >
             <Image src="/whatsapp.png" alt="" width={24} height={24} />
