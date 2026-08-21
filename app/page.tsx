@@ -44,21 +44,18 @@ const areas = [
   },
 ];
 
-const steps = [
+const firstConsult = [
   {
-    n: "01",
-    title: "Busque o que precisa",
-    text: "Use a busca no topo para achar um tema ou área de atuação.",
+    title: "Escuta acolhedora",
+    text: "Espaço seguro para falar sobre o que você está sentindo, sem pressa e sem julgamento.",
   },
   {
-    n: "02",
-    title: "Entenda com clareza",
-    text: "Leia orientações objetivas sobre sintomas e quando procurar ajuda.",
+    title: "Avaliação clínica",
+    text: "Compreensão do histórico, dos sintomas e do impacto na rotina para entender o quadro com clareza.",
   },
   {
-    n: "03",
-    title: "Agende pelo WhatsApp",
-    text: "Fale com a clínica e marque sua consulta online.",
+    title: "Plano individualizado",
+    text: "Orientação sobre os próximos passos e acompanhamento adequado à sua necessidade.",
   },
 ];
 
@@ -127,33 +124,34 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "linear-gradient(115deg, rgba(90,158,200,0.88) 0%, rgba(143,199,232,0.82) 48%, rgba(223,243,255,0.75) 100%), url('/images/brain-bg.png')",
+              "linear-gradient(105deg, rgba(244,241,237,0.94) 0%, rgba(223,243,255,0.78) 42%, rgba(185,221,242,0.55) 100%), url('/images/brain-bg.png')",
           }}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(246,199,109,0.28),transparent_42%)]" />
+        <div className="animate-hero-glow absolute -right-20 top-10 h-72 w-72 rounded-full bg-[#8fc7e8]/35 blur-3xl" />
+        <div className="absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-[#f6c76d]/20 blur-3xl" />
 
         <div className="relative mx-auto grid max-w-7xl items-end gap-10 px-5 py-14 md:min-h-[78vh] md:grid-cols-[1.1fr_0.9fr] md:items-center md:px-6 md:py-20">
           <div className="animate-fade-up max-w-xl text-[#143a63]">
             <p className="font-display text-5xl leading-none tracking-wide sm:text-6xl md:text-7xl">
               Ello
             </p>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#24465c]">
+            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#347fb3]">
               Saúde Mental
             </p>
             <h1 className="mt-6 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
-              Cuidado psiquiátrico online, com acolhimento de verdade
+              Psiquiatria online com acolhimento e cuidado individualizado
             </h1>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-[#24465c] md:text-lg">
-              Para quem busca orientação clara e atendimento individualizado —
-              adultos, crianças e adolescentes.
+            <p className="mt-5 max-w-md text-base leading-relaxed text-[#5f7180] md:text-lg">
+              Avaliação especializada para adultos, crianças e adolescentes —
+              com escuta qualificada e plano terapêutico personalizado.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <WhatsAppButton label="Agendar consulta" size="lg" />
               <a
-                href="#atuacao"
+                href="#primeira-consulta"
                 className="inline-flex items-center rounded-full border border-[#143a63]/25 bg-white/70 px-6 py-3.5 text-sm font-semibold text-[#143a63] backdrop-blur transition hover:bg-white"
               >
-                Ver áreas de atuação
+                Como é a primeira consulta
               </a>
             </div>
           </div>
@@ -177,28 +175,50 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-[#dcecf5] bg-white py-12 md:py-16">
+      <section
+        id="primeira-consulta"
+        className="border-b border-[#dcecf5] bg-white py-12 md:py-16"
+      >
         <div className="mx-auto max-w-7xl px-5 md:px-6">
-          <div className="mb-8 max-w-2xl">
+          <div className="mb-8 max-w-2xl md:mb-10">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#2f6f95]">
-              Como funciona
+              Primeira consulta
             </p>
             <h2 className="mt-3 font-display text-3xl text-[#143a63] md:text-4xl">
-              Três passos simples
+              Um espaço de escuta para quem já sente que precisa de ajuda
             </h2>
+            <p className="mt-4 text-base leading-relaxed text-[#5f7180] md:text-lg">
+              Na Clínica Ello, o ponto de partida não é se encaixar em uma lista —
+              é ser ouvido. A primeira consulta é o momento de compreender sua
+              história, seus sintomas e o impacto no dia a dia, com acolhimento e
+              critério clínico.
+            </p>
           </div>
+
           <div className="grid gap-6 md:grid-cols-3">
-            {steps.map((step) => (
-              <div key={step.n} className="border-l-2 border-[#8fc7e8] pl-5">
-                <p className="font-display text-3xl text-[#8fc7e8]">{step.n}</p>
-                <h3 className="mt-2 text-lg font-semibold text-[#143a63]">
-                  {step.title}
+            {firstConsult.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-[#dcecf5] bg-[#f8fbfd] p-6"
+              >
+                <h3 className="text-lg font-semibold text-[#143a63]">
+                  {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#5f7180]">
-                  {step.text}
+                <p className="mt-3 text-sm leading-relaxed text-[#5f7180]">
+                  {item.text}
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <WhatsAppButton label="Agendar pelo WhatsApp" />
+            <Link
+              href="/primeira-consulta-psiquiatrica"
+              className="text-sm font-semibold text-[#347fb3] transition hover:text-[#143a63]"
+            >
+              Saiba mais sobre a primeira consulta →
+            </Link>
           </div>
         </div>
       </section>

@@ -30,11 +30,11 @@ export default function ServicePage({
     <main className="min-h-screen bg-[#f4f1ed] text-[#2b2b2b]">
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#5a9ec8] via-[#8fc7e8] to-[#dff3ff] py-10 md:py-14">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#dff3ff] via-[#f8fbfd] to-[#f4f1ed] py-10 md:py-14">
         <div className="mx-auto max-w-4xl px-5 md:px-6">
           <BackLink />
 
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#143a63]/80">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#2f6f95]">
             {eyebrow}
           </p>
 
@@ -42,7 +42,7 @@ export default function ServicePage({
             {title}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#24465c] md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#5f7180] md:text-lg">
             {description}
           </p>
 

@@ -1,4 +1,4 @@
-import WhatsAppIcon from "./WhatsAppIcon";
+import Image from "next/image";
 
 export default function WhatsAppFloat() {
   return (
@@ -9,12 +9,14 @@ export default function WhatsAppFloat() {
       className="fixed bottom-5 right-5 z-40 transition hover:scale-110 md:bottom-6 md:right-6"
       aria-label="Falar no WhatsApp"
     >
-      <span className="md:hidden">
-        <WhatsAppIcon size={56} />
-      </span>
-      <span className="hidden md:inline">
-        <WhatsAppIcon size={64} />
-      </span>
+      <Image
+        src="/whatsapp.png"
+        alt=""
+        width={64}
+        height={64}
+        className="h-14 w-14 drop-shadow-lg md:h-16 md:w-16"
+        priority
+      />
     </a>
   );
 }
