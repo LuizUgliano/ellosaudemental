@@ -62,6 +62,39 @@ const steps = [
   },
 ];
 
+const featuredContents = [
+  {
+    title: "Transtorno Bipolar",
+    href: "/transtorno-bipolar",
+    desc: "Oscilações de humor, avaliação e acompanhamento.",
+  },
+  {
+    title: "Síndrome do Pânico",
+    href: "/sindrome-do-panico",
+    desc: "Quando crises intensas pedem cuidado especializado.",
+  },
+  {
+    title: "TOC",
+    href: "/toc",
+    desc: "Obsessões, compulsões e impacto na rotina.",
+  },
+  {
+    title: "Primeira consulta",
+    href: "/primeira-consulta-psiquiatrica",
+    desc: "Como funciona a avaliação psiquiátrica online.",
+  },
+  {
+    title: "Quando procurar ajuda",
+    href: "/quando-procurar-psiquiatra",
+    desc: "Sinais de alerta e momentos de buscar orientação.",
+  },
+  {
+    title: "Psiquiatra infantil",
+    href: "/psiquiatra-infantil",
+    desc: "Cuidado em saúde mental de crianças e adolescentes.",
+  },
+];
+
 const faqs = [
   {
     question: "As consultas são online?",
@@ -94,23 +127,23 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "linear-gradient(115deg, rgba(20,58,99,0.78) 0%, rgba(47,111,149,0.55) 45%, rgba(244,241,237,0.2) 100%), url('/images/brain-bg.png')",
+              "linear-gradient(115deg, rgba(90,158,200,0.88) 0%, rgba(143,199,232,0.82) 48%, rgba(223,243,255,0.75) 100%), url('/images/brain-bg.png')",
           }}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(246,199,109,0.22),transparent_45%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(246,199,109,0.28),transparent_42%)]" />
 
         <div className="relative mx-auto grid max-w-7xl items-end gap-10 px-5 py-14 md:min-h-[78vh] md:grid-cols-[1.1fr_0.9fr] md:items-center md:px-6 md:py-20">
-          <div className="animate-fade-up max-w-xl text-white">
+          <div className="animate-fade-up max-w-xl text-[#143a63]">
             <p className="font-display text-5xl leading-none tracking-wide sm:text-6xl md:text-7xl">
               Ello
             </p>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#dff3ff]">
+            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#24465c]">
               Saúde Mental
             </p>
             <h1 className="mt-6 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
               Cuidado psiquiátrico online, com acolhimento de verdade
             </h1>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-white/85 md:text-lg">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-[#24465c] md:text-lg">
               Para quem busca orientação clara e atendimento individualizado —
               adultos, crianças e adolescentes.
             </p>
@@ -118,7 +151,7 @@ export default function Home() {
               <WhatsAppButton label="Agendar consulta" size="lg" />
               <a
                 href="#atuacao"
-                className="inline-flex items-center rounded-full border border-white/40 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
+                className="inline-flex items-center rounded-full border border-[#143a63]/25 bg-white/70 px-6 py-3.5 text-sm font-semibold text-[#143a63] backdrop-blur transition hover:bg-white"
               >
                 Ver áreas de atuação
               </a>
@@ -178,14 +211,19 @@ export default function Home() {
                 Áreas de Atuação
               </p>
               <h2 className="mt-3 font-display text-3xl text-[#143a63] md:text-5xl">
-                O que você pode tratar conosco
+                Áreas frequentes de acompanhamento
               </h2>
+              <p className="mt-3 text-sm leading-relaxed text-[#5f7180] md:text-base">
+                Exemplos de demandas comuns no atendimento. A avaliação é
+                individualizada e pode contemplar outras condições conforme a
+                necessidade de cada paciente.
+              </p>
             </div>
             <Link
               href="/conteudos"
-              className="text-sm font-semibold text-[#347fb3] transition hover:text-[#143a63]"
+              className="inline-flex items-center justify-center rounded-full border border-[#143a63] bg-white px-5 py-2.5 text-sm font-semibold text-[#143a63] transition hover:bg-[#143a63] hover:text-white"
             >
-              Ver todos os conteúdos →
+              Ver biblioteca completa →
             </Link>
           </div>
 
@@ -215,7 +253,60 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="sobre" className="bg-white py-14 md:py-20">
+      <section id="conteudos-destaque" className="bg-white py-14 md:py-20">
+        <div className="mx-auto max-w-7xl px-5 md:px-6">
+          <div className="mb-8 max-w-2xl md:mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#2f6f95]">
+              Conteúdos
+            </p>
+            <h2 className="mt-3 font-display text-3xl text-[#143a63] md:text-4xl">
+              Orientações para quem está buscando cuidado
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-[#5f7180]">
+              Artigos objetivos para ajudar a entender sintomas, dúvidas e
+              quando vale procurar avaliação. Use também a busca no topo.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredContents.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-2xl border border-[#dcecf5] bg-[#f8fbfd] p-5 transition hover:border-[#8fc7e8] hover:bg-white hover:shadow-md"
+              >
+                <h3 className="text-lg font-semibold text-[#143a63]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#5f7180]">
+                  {item.desc}
+                </p>
+                <span className="mt-4 inline-block text-sm font-semibold text-[#347fb3]">
+                  Ler conteúdo →
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col items-center gap-3 rounded-[1.75rem] bg-gradient-to-r from-[#dff3ff] to-[#f8fbfd] px-6 py-8 text-center md:px-10">
+            <h3 className="font-display text-2xl text-[#143a63] md:text-3xl">
+              Tem mais conteúdos na biblioteca
+            </h3>
+            <p className="max-w-xl text-sm leading-relaxed text-[#5f7180] md:text-base">
+              Reunimos temas por condição, sintomas, infância, adultos e
+              atendimento por região — para facilitar sua busca.
+            </p>
+            <Link
+              href="/conteudos"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-[#143a63] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#24465c]"
+            >
+              Abrir todos os conteúdos
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" className="bg-[#f8f6f2] py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#2f6f95]">
@@ -395,10 +486,10 @@ function DoctorPortrait({
             className="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
           />
         </div>
-        <figcaption className="mt-2.5 px-1 text-white">
+        <figcaption className="mt-2.5 px-1 text-[#143a63]">
           <p className="text-sm font-semibold sm:text-base">{name}</p>
-          <p className="text-xs text-white/75 sm:text-sm">{detail}</p>
-          <p className="mt-1 text-xs font-medium text-[#f6c76d] opacity-90">
+          <p className="text-xs text-[#24465c]/80 sm:text-sm">{detail}</p>
+          <p className="mt-1 text-xs font-medium text-[#2f6f95]">
             Ver perfil ↓
           </p>
         </figcaption>
