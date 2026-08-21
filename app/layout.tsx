@@ -44,12 +44,24 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/ello-favicon.ico", sizes: "any" },
       { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/ello-icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/ello-icon-512.png", sizes: "512x512", type: "image/png" },
     ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [
+      {
+        url: "/ello-apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    shortcut: ["/ello-favicon.ico"],
+  },
+  manifest: "/site.webmanifest",
+  other: {
+    "mobile-web-app-capable": "yes",
   },
   openGraph: {
     title: "Clínica Ello Saúde Mental | Psiquiatria Online",
