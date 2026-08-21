@@ -130,12 +130,14 @@ export default function Home() {
               image="/nathalia.jpg"
               name="Dra. Nathália"
               detail="CRM-SP 157028"
+              href="#dra-nathalia"
               priority
             />
             <DoctorPortrait
               image="/images/fernanda.jpg"
               name="Dra. Fernanda"
               detail="CRM-SP 264039"
+              href="#dra-fernanda"
               className="mt-8 sm:mt-12"
             />
           </div>
@@ -215,59 +217,94 @@ export default function Home() {
 
       <section id="sobre" className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#2f6f95]">
-                Sobre a Clínica
-              </p>
-              <h2 className="mt-3 font-display text-4xl text-[#143a63] md:text-5xl">
-                Clínica Ello Saúde Mental
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-[#5f7180] md:text-lg">
-                Atendimento psiquiátrico humanizado, baseado em evidências, com
-                escuta qualificada e plano individualizado para cada paciente.
-              </p>
-              <div className="mt-8 space-y-4">
-                <div>
-                  <h3 className="font-semibold text-[#143a63]">
-                    Dra. Nathália Costa Ugliano
-                  </h3>
-                  <p className="text-sm text-[#5f7180]">
-                    CRM-SP 157028 · Pós-graduada em Saúde Mental pela Santa Casa
-                    de São Paulo
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-[#143a63]">
-                    Dra. Fernanda Matos
-                  </h3>
-                  <p className="text-sm text-[#5f7180]">
-                    CRM-SP 264039 · Saúde Mental da Criança e do Adolescente
-                    (Albert Einstein)
-                  </p>
-                </div>
-              </div>
-              <div className="mt-8">
-                <WhatsAppButton label="Falar com a clínica" />
-              </div>
-            </div>
+          <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#2f6f95]">
+              Sobre a Clínica
+            </p>
+            <h2 className="mt-3 font-display text-4xl text-[#143a63] md:text-5xl">
+              Clínica Ello Saúde Mental
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-[#5f7180] md:text-lg">
+              Atendimento psiquiátrico humanizado, baseado em evidências, com
+              escuta qualificada e plano individualizado para cada paciente.
+            </p>
+          </div>
 
-            <div className="grid grid-cols-2 gap-4">
+          <div className="mb-10 grid gap-5 md:grid-cols-2">
+            <div className="rounded-[1.5rem] bg-[#f8fbfd] p-6 md:p-7">
+              <h3 className="font-display text-2xl text-[#143a63]">
+                Nossa Missão
+              </h3>
+              <p className="mt-3 leading-relaxed text-[#5f7180]">
+                Promover cuidado integral em saúde mental com atendimento ético,
+                acolhedor e fundamentado em evidências científicas.
+              </p>
+            </div>
+            <div className="rounded-[1.5rem] bg-[#f8fbfd] p-6 md:p-7">
+              <h3 className="font-display text-2xl text-[#143a63]">
+                Nossa Visão
+              </h3>
+              <p className="mt-3 leading-relaxed text-[#5f7180]">
+                Ser referência em atendimento humanizado, com qualidade de vida,
+                equilíbrio emocional e bem-estar para os pacientes.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <article
+              id="dra-nathalia"
+              className="overflow-hidden rounded-[1.75rem] border border-[#dcecf5] bg-[#f8fbfd]"
+            >
               <Image
                 src="/nathalia.jpg"
                 alt="Dra. Nathália Costa Ugliano"
-                width={480}
-                height={600}
-                className="aspect-[4/5] w-full rounded-[1.5rem] object-cover shadow-xl"
+                width={640}
+                height={720}
+                className="aspect-[5/4] w-full object-cover"
               />
+              <div className="p-6 md:p-7">
+                <h3 className="font-display text-2xl text-[#143a63] md:text-3xl">
+                  Dra. Nathália Costa Ugliano
+                </h3>
+                <p className="mt-2 font-medium text-[#2f6f95]">
+                  Médica | CRM-SP 157028
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-[#5f7180]">
+                  Pós-graduada em Saúde Mental pela Santa Casa de São Paulo.
+                  Atendimento humanizado para adolescentes, adultos e idosos.
+                </p>
+              </div>
+            </article>
+
+            <article
+              id="dra-fernanda"
+              className="overflow-hidden rounded-[1.75rem] border border-[#dcecf5] bg-[#f8fbfd]"
+            >
               <Image
                 src="/images/fernanda.jpg"
                 alt="Dra. Fernanda Matos"
-                width={480}
-                height={600}
-                className="mt-8 aspect-[4/5] w-full rounded-[1.5rem] object-cover shadow-xl"
+                width={640}
+                height={720}
+                className="aspect-[5/4] w-full object-cover"
               />
-            </div>
+              <div className="p-6 md:p-7">
+                <h3 className="font-display text-2xl text-[#143a63] md:text-3xl">
+                  Dra. Fernanda Matos
+                </h3>
+                <p className="mt-2 font-medium text-[#2f6f95]">
+                  Médica | CRM-SP 264039
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-[#5f7180]">
+                  Pós-graduanda em Saúde Mental da Criança e do Adolescente pelo
+                  Hospital Israelita Albert Einstein.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <WhatsAppButton label="Falar com a clínica" />
           </div>
         </div>
       </section>
@@ -330,31 +367,42 @@ function DoctorPortrait({
   image,
   name,
   detail,
+  href,
   className = "",
   priority = false,
 }: {
   image: string;
   name: string;
   detail: string;
+  href: string;
   className?: string;
   priority?: boolean;
 }) {
   return (
-    <figure className={className}>
-      <div className="overflow-hidden rounded-[1.25rem] shadow-[0_28px_60px_-28px_rgba(0,0,0,0.45)] ring-1 ring-white/30">
-        <Image
-          src={image}
-          alt={name}
-          width={640}
-          height={800}
-          priority={priority}
-          className="aspect-[4/5] w-full object-cover"
-        />
-      </div>
-      <figcaption className="mt-2.5 px-1 text-white">
-        <p className="text-sm font-semibold sm:text-base">{name}</p>
-        <p className="text-xs text-white/75 sm:text-sm">{detail}</p>
-      </figcaption>
-    </figure>
+    <a
+      href={href}
+      className={`group block ${className}`}
+      aria-label={`Ver perfil de ${name}`}
+    >
+      <figure>
+        <div className="overflow-hidden rounded-[1.25rem] shadow-[0_28px_60px_-28px_rgba(0,0,0,0.45)] ring-1 ring-white/30 transition group-hover:ring-2 group-hover:ring-[#f6c76d]">
+          <Image
+            src={image}
+            alt={name}
+            width={640}
+            height={800}
+            priority={priority}
+            className="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+        <figcaption className="mt-2.5 px-1 text-white">
+          <p className="text-sm font-semibold sm:text-base">{name}</p>
+          <p className="text-xs text-white/75 sm:text-sm">{detail}</p>
+          <p className="mt-1 text-xs font-medium text-[#f6c76d] opacity-90">
+            Ver perfil ↓
+          </p>
+        </figcaption>
+      </figure>
+    </a>
   );
 }
