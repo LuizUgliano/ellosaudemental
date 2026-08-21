@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f1ed;
+  --foreground: #2b2b2b;
+  --ello-cream: #f4f1ed;
+  --ello-cream-soft: #f8f6f2;
+  --ello-navy: #143a63;
+  --ello-navy-mid: #24465c;
+  --ello-blue: #8fc7e8;
+  --ello-blue-mid: #b9ddf2;
+  --ello-blue-soft: #dff3ff;
+  --ello-accent: #347fb3;
+  --ello-gold: #f6c76d;
+  --ello-muted: #5f7180;
+  --ello-border: #dcecf5;
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-outfit);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-cormorant);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), "Segoe UI", sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes hero-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s ease-out both;
+}
+
+.animate-fade-up-delay {
+  animation: fade-up 0.9s ease-out 0.15s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.9s ease-out 0.3s both;
+}
+
+.animate-soft-float {
+  animation: soft-float 6s ease-in-out infinite;
+}
+
+.animate-hero-glow {
+  animation: hero-glow 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-up-delay,
+  .animate-fade-up-delay-2,
+  .animate-soft-float,
+  .animate-hero-glow {
+    animation: none;
+  }
 }
