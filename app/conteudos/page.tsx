@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteFooter from "../_components/SiteFooter";
 import SiteHeader from "../_components/SiteHeader";
 import WhatsAppFloat from "../_components/WhatsAppFloat";
+import { contentIndex } from "../_lib/contentIndex";
 
 export const metadata: Metadata = {
   title: "Conteúdos sobre Saúde Mental",
@@ -10,100 +11,63 @@ export const metadata: Metadata = {
     "Biblioteca de conteúdos sobre saúde mental, psiquiatria online, transtornos, sintomas e dúvidas frequentes.",
 };
 
-const sections = [
-  {
-    title: "Mais condições e transtornos",
-    items: [
-      ["Transtorno Bipolar", "/transtorno-bipolar"],
-      ["TOC", "/toc"],
-      ["Síndrome do Pânico", "/sindrome-do-panico"],
-      ["TAG", "/tag"],
-      ["Fobia Social", "/fobia-social"],
-      ["Borderline", "/borderline"],
-      ["Autismo infantil", "/autismo-infantil"],
-      ["Autismo em adultos", "/autismo-em-adultos"],
-    ],
-  },
-  {
-    title: "Sintomas e dúvidas frequentes",
-    items: [
-      ["Ansiedade e falta de ar", "/ansiedade-falta-de-ar"],
-      ["Ansiedade à noite", "/ansiedade-a-noite"],
-      ["Crise de ansiedade", "/crise-de-ansiedade"],
-      ["Insônia crônica", "/insonia-cronica"],
-      ["Burnout ou estresse?", "/burnout-ou-estresse"],
-      ["Como saber se tenho burnout?", "/como-saber-se-tenho-burnout"],
-    ],
-  },
-  {
-    title: "Infância, adolescentes e adultos",
-    items: [
-      ["Psiquiatra infantil", "/psiquiatra-infantil"],
-      ["TDAH infantil", "/tdah-infantil"],
-      ["Ansiedade infantil", "/ansiedade-infantil"],
-      ["TDAH em adultos", "/tdah-em-adultos"],
-      ["TDAH em mulheres", "/tdah-em-mulheres"],
-    ],
-  },
-  {
-    title: "Consulta psiquiátrica online",
-    items: [
-      ["Psiquiatra online", "/psiquiatra-online"],
-      ["Primeira consulta psiquiátrica", "/primeira-consulta-psiquiatrica"],
-      ["Quando procurar um psiquiatra", "/quando-procurar-psiquiatra"],
-    ],
-  },
-];
+const categories = [
+  "Tratamentos",
+  "Condições",
+  "Sintomas",
+  "Infantil",
+  "Adultos",
+  "Atendimento",
+  "Regiões",
+] as const;
 
 export default function ConteudosPage() {
   return (
     <main className="min-h-screen bg-[#f4f1ed] text-[#2b2b2b]">
       <SiteHeader />
 
-      <section className="bg-gradient-to-br from-[#dff3ff] via-[#f8fbfd] to-[#f4f1ed] py-12 md:py-16">
+      <section className="bg-gradient-to-br from-[#143a63] via-[#2f6f95] to-[#8fc7e8] py-12 text-white md:py-16">
         <div className="mx-auto max-w-6xl px-5 md:px-6">
-          <Link
-            href="/"
-            className="mb-8 inline-flex text-sm font-semibold text-[#143a63] transition hover:text-[#347fb3]"
-          >
-            ← Voltar para a página inicial
-          </Link>
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#2f6f95]">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#dff3ff]">
             Biblioteca
           </p>
-          <h1 className="mt-4 font-display text-4xl leading-tight text-[#143a63] md:text-6xl">
+          <h1 className="mt-4 font-display text-4xl leading-tight md:text-6xl">
             Conteúdos sobre saúde mental
           </h1>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-[#5f7180] md:text-lg">
-            Informações educativas sobre saúde mental, sintomas, transtornos e
-            atendimento psiquiátrico online. Os conteúdos não substituem
-            avaliação médica individual.
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">
+            Use a busca no topo da página para achar um tema rapidamente, ou
+            navegue pelas categorias abaixo.
           </p>
         </div>
       </section>
 
       <section className="bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-6xl px-5 md:px-6">
-          <div className="space-y-12">
-            {sections.map((section) => (
-              <div key={section.title}>
+        <div className="mx-auto max-w-6xl space-y-12 px-5 md:px-6">
+          {categories.map((category) => {
+            const items = contentIndex.filter(
+              (item) => item.category === category && item.href !== "/conteudos",
+            );
+            if (items.length === 0) return null;
+
+            return (
+              <div key={category}>
                 <h2 className="font-display text-2xl text-[#143a63] md:text-3xl">
-                  {section.title}
+                  {category}
                 </h2>
-                <div className="mt-5 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-                  {section.items.map(([title, href]) => (
+                <div className="mt-4 grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+                  {items.map((item) => (
                     <Link
-                      key={href}
-                      href={href}
-                      className="rounded-2xl border border-[#dcecf5] bg-[#f8fbfd] p-5 font-semibold text-[#143a63] transition hover:-translate-y-0.5 hover:border-[#8fc7e8] hover:bg-white hover:shadow-md"
+                      key={item.href}
+                      href={item.href}
+                      className="rounded-xl border border-[#dcecf5] bg-[#f8fbfd] px-4 py-4 text-sm font-semibold text-[#143a63] transition hover:border-[#8fc7e8] hover:bg-white"
                     >
-                      {title} →
+                      {item.title}
                     </Link>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 

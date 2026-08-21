@@ -12,9 +12,9 @@ export default function WhatsAppFloat() {
       <Image
         src="/whatsapp.png"
         alt=""
-        width={58}
-        height={58}
-        className="drop-shadow-lg md:h-[68px] md:w-[68px]"
+        width={64}
+        height={64}
+        className="h-14 w-14 drop-shadow-lg md:h-16 md:w-16"
       />
     </a>
   );
