@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Tratamento da Insônia Online | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Tratamento da insônia online",
   description:
-    "Atendimento psiquiátrico online para dificuldade para dormir, despertares frequentes, sono não reparador e impacto na rotina.",
-};
+    "Avaliação psiquiátrica online para insônia e dificuldades de sono que prejudicam o dia a dia, com orientação e acompanhamento individualizado.",
+  path: "/tratamento-insonia",
+});
 
 const whenToSeek = [
   "Dificuldade frequente para iniciar ou manter o sono",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/tratamento-insonia")}
     />
   );
 }

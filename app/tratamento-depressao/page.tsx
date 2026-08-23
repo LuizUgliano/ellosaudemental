@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Tratamento da Depressão Online | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Tratamento da depressão online",
   description:
-    "Consulta psiquiátrica online para avaliação e acompanhamento de sintomas depressivos, alterações de humor, sono e energia.",
-};
+    "Atendimento psiquiátrico online para depressão, desânimo e alterações de humor, com escuta qualificada e plano terapêutico individualizado.",
+  path: "/tratamento-depressao",
+});
 
 const whenToSeek = [
   "Desânimo persistente ou perda de prazer nas atividades",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/tratamento-depressao")}
     />
   );
 }

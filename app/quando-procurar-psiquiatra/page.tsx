@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Quando Procurar um Psiquiatra | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Quando procurar um psiquiatra",
   description:
-    "Saiba quando procurar um psiquiatra e como a consulta online pode ajudar na avaliação de sintomas emocionais.",
-};
+    "Sinais de alerta e situações em que vale buscar avaliação psiquiátrica — online ou presencial — com orientação cuidadosa e individualizada.",
+  path: "/quando-procurar-psiquiatra",
+});
 
 const whenToSeek = [
   "Sintomas emocionais persistentes por semanas ou meses",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/quando-procurar-psiquiatra")}
     />
   );
 }

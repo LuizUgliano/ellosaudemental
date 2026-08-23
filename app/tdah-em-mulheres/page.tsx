@@ -1,10 +1,13 @@
-import type { Metadata } from "next";
 import SeoArticlePage from "../_components/SeoArticlePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "TDAH em mulheres | Clínica Ello Saúde Mental",
-  description: "Conteúdo educativo sobre TDAH em mulheres e a importância de avaliação cuidadosa.",
-};
+export const metadata = buildPageMetadata({
+  title: "TDAH em mulheres",
+  description:
+    "Conteúdo educativo sobre TDAH em mulheres e a importância de avaliação cuidadosa.",
+  path: "/tdah-em-mulheres",
+});
 
 const page = {
   "eyebrow": "TDAH",
@@ -47,23 +50,9 @@ const page = {
       "question": "O conteúdo desta página substitui consulta?",
       "answer": "Não. O conteúdo é educativo e não substitui uma avaliação médica individual."
     }
-  ],
-  "related": [
-    {
-      "title": "Psiquiatra online",
-      "href": "/psiquiatra-online"
-    },
-    {
-      "title": "Primeira consulta psiquiátrica",
-      "href": "/primeira-consulta-psiquiatrica"
-    },
-    {
-      "title": "Quando procurar um psiquiatra",
-      "href": "/quando-procurar-psiquiatra"
-    }
   ]
 };
 
 export default function Page() {
-  return <SeoArticlePage {...page} />;
+  return <SeoArticlePage {...page} related={relatedFor("/tdah-em-mulheres")} />;
 }

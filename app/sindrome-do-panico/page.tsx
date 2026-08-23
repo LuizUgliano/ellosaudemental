@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Síndrome do Pânico Online | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Síndrome do Pânico Online",
   description:
     "Atendimento psiquiátrico online para síndrome do pânico, crises de ansiedade e medo intenso recorrente.",
-};
+  path: "/sindrome-do-panico",
+});
 
 const whenToSeek = [
   "Crises súbitas de medo ou desespero",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/sindrome-do-panico")}
     />
   );
 }

@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Psiquiatra Online São Paulo | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Psiquiatra Online São Paulo",
   description:
     "Atendimento psiquiátrico online em são paulo com telemedicina, acolhimento e avaliação individualizada em saúde mental.",
-};
+  path: "/psiquiatra-online-sao-paulo",
+});
 
 const whenToSeek = [
   "Ansiedade frequente, preocupação excessiva ou crises de pânico",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/psiquiatra-online-sao-paulo")}
     />
   );
 }

@@ -39,9 +39,6 @@ export const metadata: Metadata = {
     "psiquiatra Ribeirão Pires",
     "psiquiatra ABC",
   ],
-  alternates: {
-    canonical: "/",
-  },
   icons: {
     icon: [
       { url: "/ello-favicon.ico", sizes: "any" },

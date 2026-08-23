@@ -1,3 +1,5 @@
+import Link from "next/link";
+import type { RelatedLink } from "../_lib/relatedLinks";
 import BackLink from "./BackLink";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
@@ -16,6 +18,7 @@ export type ServicePageProps = {
   whenToSeek: string[];
   benefits: string[];
   faqs: ServiceFaq[];
+  related?: RelatedLink[];
 };
 
 export default function ServicePage({
@@ -25,6 +28,7 @@ export default function ServicePage({
   whenToSeek,
   benefits,
   faqs,
+  related = [],
 }: ServicePageProps) {
   return (
     <main className="min-h-screen bg-[#f4f1ed] text-[#2b2b2b]">
@@ -99,6 +103,30 @@ export default function ServicePage({
           </ul>
         </div>
       </section>
+
+      {related.length > 0 && (
+        <section className="border-y border-[#dcecf5] bg-[#f8f6f2] py-12 md:py-16">
+          <div className="mx-auto max-w-5xl px-5 md:px-6">
+            <h2 className="font-display text-3xl text-[#143a63]">
+              Conteúdos relacionados
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5f7180] md:text-base">
+              Leia também sobre temas próximos a este acompanhamento.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+              {related.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-2xl border border-[#dcecf5] bg-white p-5 text-sm font-semibold text-[#143a63] transition hover:-translate-y-0.5 hover:border-[#8fc7e8] hover:shadow-md"
+                >
+                  {item.title} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-white py-12 md:py-16">
         <div className="mx-auto max-w-3xl px-5 md:px-6">
