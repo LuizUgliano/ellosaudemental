@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Psiquiatra Infantil Online | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Psiquiatra Infantil Online",
   description:
     "Atendimento psiquiátrico online para crianças e adolescentes, com escuta qualificada e cuidado individualizado.",
-};
+  path: "/psiquiatra-infantil",
+});
 
 const whenToSeek = [
   "Mudanças importantes de comportamento ou humor",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/psiquiatra-infantil")}
     />
   );
 }

@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Primeira Consulta Psiquiátrica Online | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Primeira consulta psiquiátrica online",
   description:
-    "Entenda como funciona a primeira consulta psiquiátrica online, avaliação inicial e agendamento pela Clínica Ello.",
-};
+    "Entenda como funciona a primeira consulta psiquiátrica online: escuta, avaliação clínica e orientação sobre os próximos passos do cuidado.",
+  path: "/primeira-consulta-psiquiatrica",
+});
 
 const whenToSeek = [
   "Quando há dúvidas sobre sintomas emocionais persistentes",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/primeira-consulta-psiquiatrica")}
     />
   );
 }

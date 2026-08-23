@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Psiquiatra Online | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Psiquiatra online por telemedicina",
   description:
-    "Consulta com psiquiatra online por telemedicina, com atendimento humanizado, sigiloso e individualizado para saúde mental.",
-};
+    "Consulta psiquiátrica online com acolhimento e sigilo. Avaliação e acompanhamento em saúde mental por videochamada, de onde você estiver.",
+  path: "/psiquiatra-online",
+});
 
 const whenToSeek = [
   "Ansiedade",
@@ -53,6 +55,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/psiquiatra-online")}
     />
   );
 }

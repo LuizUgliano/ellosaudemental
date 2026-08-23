@@ -5,6 +5,21 @@ import SiteHeader from "./_components/SiteHeader";
 import WhatsAppButton from "./_components/WhatsAppButton";
 import WhatsAppFloat from "./_components/WhatsAppFloat";
 
+import { buildPageMetadata } from "./_lib/seo";
+
+export const metadata = {
+  ...buildPageMetadata({
+    title: "Psiquiatria online com acolhimento",
+    description:
+      "Clínica de saúde mental com atendimento psiquiátrico online. Cuidado em ansiedade, depressão, TDAH, insônia, burnout e saúde mental.",
+    path: "/",
+  }),
+  title: {
+    absolute: "Clínica Ello Saúde Mental | Psiquiatria Online",
+  },
+};
+
+
 const areas = [
   {
     title: "Ansiedade",

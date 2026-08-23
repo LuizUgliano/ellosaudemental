@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Tratamento de TDAH Online | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Tratamento de TDAH online",
   description:
-    "Avaliação psiquiátrica online para TDAH, desatenção, impulsividade, organização, rotina e acompanhamento em saúde mental.",
-};
+    "Avaliação e acompanhamento psiquiátrico online para TDAH em adultos e jovens. Atenção, impulsividade, organização e impacto na rotina.",
+  path: "/tratamento-tdah",
+});
 
 const whenToSeek = [
   "Dificuldade persistente de foco e organização",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/tratamento-tdah")}
     />
   );
 }

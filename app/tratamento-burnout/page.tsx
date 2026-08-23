@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Tratamento de Burnout Online | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Tratamento de burnout online",
   description:
-    "Consulta psiquiátrica online para esgotamento emocional, sobrecarga profissional, queda de desempenho e sofrimento relacionado ao trabalho.",
-};
+    "Acompanhamento psiquiátrico online para esgotamento, sobrecarga no trabalho e sintomas de burnout, com cuidado individualizado.",
+  path: "/tratamento-burnout",
+});
 
 const whenToSeek = [
   "Esgotamento físico e emocional constante",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/tratamento-burnout")}
     />
   );
 }

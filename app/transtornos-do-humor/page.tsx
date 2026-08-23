@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Transtornos do Humor | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Transtornos do Humor",
   description:
     "Acompanhamento psiquiátrico online para alterações persistentes de humor, episódios depressivos, irritabilidade e oscilações emocionais.",
-};
+  path: "/transtornos-do-humor",
+});
 
 const whenToSeek = [
   "Oscilações de humor frequentes ou intensas",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/transtornos-do-humor")}
     />
   );
 }

@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import SiteFooter from "../_components/SiteFooter";
 import SiteHeader from "../_components/SiteHeader";
 import WhatsAppFloat from "../_components/WhatsAppFloat";
 import { contentIndex } from "../_lib/contentIndex";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Conteúdos sobre Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Conteúdos sobre saúde mental",
   description:
-    "Biblioteca de conteúdos sobre saúde mental, psiquiatria online, transtornos, sintomas e dúvidas frequentes.",
-};
+    "Biblioteca com orientações sobre ansiedade, TDAH, depressão, insônia, burnout, telemedicina e quando procurar ajuda.",
+  path: "/conteudos",
+});
 
 const categories = [
   "Tratamentos",

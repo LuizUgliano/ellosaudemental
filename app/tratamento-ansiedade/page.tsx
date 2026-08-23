@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Tratamento da Ansiedade Online | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Tratamento da ansiedade online",
   description:
-    "Atendimento psiquiátrico online para ansiedade, crises de ansiedade, preocupação excessiva e sintomas emocionais persistentes.",
-};
+    "Acompanhamento psiquiátrico online para ansiedade, preocupação excessiva, tensão e crises. Avaliação individualizada e plano de cuidado.",
+  path: "/tratamento-ansiedade",
+});
 
 const whenToSeek = [
   "Preocupação excessiva na maior parte dos dias",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/tratamento-ansiedade")}
     />
   );
 }

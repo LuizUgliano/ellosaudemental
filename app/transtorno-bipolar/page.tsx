@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import ServicePage from "../_components/ServicePage";
+import { relatedFor } from "../_lib/relatedLinks";
+import { buildPageMetadata } from "../_lib/seo";
 
-export const metadata: Metadata = {
-  title: "Transtorno Bipolar Online | Clínica Ello Saúde Mental",
+export const metadata = buildPageMetadata({
+  title: "Transtorno Bipolar Online",
   description:
     "Atendimento psiquiátrico online para transtorno bipolar, oscilações de humor e acompanhamento em saúde mental.",
-};
+  path: "/transtorno-bipolar",
+});
 
 const whenToSeek = [
   "Oscilações intensas de humor, energia ou irritabilidade",
@@ -51,6 +53,7 @@ export default function Page() {
       whenToSeek={whenToSeek}
       benefits={benefits}
       faqs={faqs}
+      related={relatedFor("/transtorno-bipolar")}
     />
   );
 }
