@@ -4,23 +4,23 @@
   "description": "Psiquiatria online com acolhimento e cuidado individualizado",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f8f6f2",
+  "background_color": "#143a63",
   "theme_color": "#143a63",
   "icons": [
     {
-      "src": "/ello-icon-192.png",
+      "src": "/ello-icon-192-v2.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/ello-icon-512.png",
+      "src": "/ello-icon-512-v2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/ello-apple-touch-icon.png",
+      "src": "/ello-apple-touch-icon-v2.png",
       "sizes": "180x180",
       "type": "image/png"
     }

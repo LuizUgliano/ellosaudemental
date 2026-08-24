@@ -41,20 +41,20 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: "/ello-favicon.ico", sizes: "any" },
+      { url: "/ello-favicon-v2.ico", sizes: "any" },
       { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/ello-icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/ello-icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/ello-icon-192-v2.png", sizes: "192x192", type: "image/png" },
+      { url: "/ello-icon-512-v2.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
       {
-        url: "/ello-apple-touch-icon.png",
+        url: "/ello-apple-touch-icon-v2.png",
         sizes: "180x180",
         type: "image/png",
       },
     ],
-    shortcut: ["/ello-favicon.ico"],
+    shortcut: ["/ello-favicon-v2.ico"],
   },
   manifest: "/site.webmanifest",
   other: {
