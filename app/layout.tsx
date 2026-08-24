@@ -41,20 +41,44 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: "/ello-favicon-v3.ico", sizes: "any" },
-      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/ello-icon-192-v3.png", sizes: "192x192", type: "image/png" },
-      { url: "/ello-icon-512-v3.png", sizes: "512x512", type: "image/png" },
+      {
+        url: "https://ellosaudemental.com.br/brand/icon-20260824.ico",
+        sizes: "any",
+      },
+      {
+        url: "https://ellosaudemental.com.br/brand/icon-16-20260824.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "https://ellosaudemental.com.br/brand/icon-32-20260824.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "https://ellosaudemental.com.br/brand/icon-192-20260824.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "https://ellosaudemental.com.br/brand/icon-512-20260824.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
     apple: [
       {
-        url: "/ello-apple-touch-icon-v3.png",
+        url: "https://ellosaudemental.com.br/brand/touch-180-20260824.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+      {
+        url: "https://ellosaudemental.com.br/apple-touch-icon.png",
         sizes: "180x180",
         type: "image/png",
       },
     ],
-    shortcut: ["/ello-favicon-v3.ico"],
+    shortcut: ["https://ellosaudemental.com.br/brand/icon-20260824.ico"],
   },
   manifest: "/site.webmanifest",
   other: {
